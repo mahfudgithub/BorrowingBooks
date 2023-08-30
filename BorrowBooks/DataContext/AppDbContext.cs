@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BorrowBooks.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace BorrowBooks.DataContext
             this.ChangeTracker.LazyLoadingEnabled = false;
         }
 
+        public DbSet<Books> TB_M_BOOK { get; set; }
+        public DbSet<Members> TB_M_MEMBER { get; set; }
+        public DbSet<Transaction> TB_R_BORROW_BOOK { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
